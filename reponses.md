@@ -14,36 +14,27 @@ Lien Github du TD = https://github.com/PaulGorlicki/test
         On a une duplication du getName() et du constructeur.
     
 
-## Triangulation
+## 
 
-Le TDD insiste profondément sur la programmation par nécessité. Il faut d’abord écrire le test qui génère un besoin fonctionnel (*test-first*), avant de coder ce besoin. Néanmoins, la méthode *Fake it* vue précédemment montre qu’il est possible de faire passer des tests à un programme sans réellement écrire le code nécessaire. Le problème vient ici du fait que nous n’avons pas suffisamment spécifié les tests permettant de cerner le comportement d’une méthode. Pour raffiner les tests, nous allons appliquer la méthode de triangulation.
+1. Est-il possible de faire un test qui n’implique l’ajout que d’une seule de ces deux méthodes ?
 
-1. Écrire un test permettant de vérifier que l’ajout d’une traduction au dictionnaire (`addTranslation`) se passe correctement lors de la vérification (`getTranslation`).
+    Oui, on peut vérifier chaque méthode. Les deux marchent indépendamment de l'autre. 
 
-        ```java
-        @Test public void testOneTranslation() {
-                dict.addTranslation("contre", "against");
-                assertThat(dict.getTranslation("contre"), equalsTo("against"));
-        }
-        ```
 
-2. Est-il possible de faire un test qui n’implique l’ajout que d’une seule de ces deux méthodes ?
 
-    Oui, on peut vérifier qu'addTranslation() ajoute bien une traduction et vérifier que getTranslation() nous donne bien une traduction. Les deux marchent indépendamment. 
 
-3. Utiliser *Fake it* pour faire passer le test en faisant renvoyer à `getTranslation` la réponse attendue par le test.
 
-4. Ici, notre test n’est pas suffisamment précis, et l’implémentation obtenue est correcte d’un point de vue des tests. Trianguler consiste ici à raffiner le test pour mieux cibler le comportement du code.
 
-        Ajouter dans le test la vérification d’une seconde traduction qui soit différente de la première.
 
-5. Maintenant, il faut faire un choix : soit se limiter à une implémentation-simulacre, soit ajouter un morceau de code capable d’effectivement gérer les traductions. C’est la deuxième solution que l’on choisit maintenant.
+
+
+1. Maintenant, il faut faire un choix : soit se limiter à une implémentation-simulacre, soit ajouter un morceau de code capable d’effectivement gérer les traductions. C’est la deuxième solution que l’on choisit maintenant.
 
         Ajouter à la classe `Dictionary`une table de hachage `Map<String, String> translations`.
 
-6. Rendre le code de `addTranslation` et de `getTranslation` correct.
+2. Rendre le code de `addTranslation` et de `getTranslation` correct.
 
-7. Vu que l’on dispose à présent d’un moyen correct pour remplir le dictionnaire avec des traductions,
+3. Vu que l’on dispose à présent d’un moyen correct pour remplir le dictionnaire avec des traductions,
    il devient possible de s’occuper du cas du test du dictionnaire vide.
 
         Améliorer le test du vide du dictionnaire en augmentant le test initial.

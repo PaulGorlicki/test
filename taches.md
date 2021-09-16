@@ -22,4 +22,4 @@ Triangulation
 
 [X] 2 - getTranslationTest()
 
-[  ] 3 - seconde traduction
+[X] 3 - getTranslationTest2()

@@ -21,6 +21,12 @@ public class DictionaryTest{
         dicTest.addTranslation("contre", "against");
         assertThat(dicTest.getTranslation("contre"), equalTo("against"));
 } 
+    @Test 
+    public void testOneTranslation2() {
+        dicTest.addTranslation("oui", "yes");
+        assertThat(dicTest.getTranslation("oui"), equalTo("yes"));
+} 
+
     @Test
     public void getTranslationTest() {
         assertThat(dicTest.getName(), equalTo(dicTest.getTranslation(dicTest.getName())));
