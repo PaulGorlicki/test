@@ -1,87 +1,18 @@
 # MODEL - TD TDD
 
-## Objectifs
+## 
 
 Lien Github du TD = https://github.com/PaulGorlicki/test
 
-Dans ce TD nous allons illustrer le principe du TDD sur un exemple simple. Nous allons aussi illustrer l'utilisation de stubs et de couverture du code par les tests. Vous pourrez utiliser l'IDE de votre choix **mais** l'ensemble du travail doit pouvoir fonctionner hors IDE à l'aide du système de build indiqué dans la suite.
-
-## Installation
-
-1. créer un projet gradle et le versionner sur GitHub. Remplacer le fichier `build.gradle` par celui fourni en ligne (pensez à modifier ce qui serait spécifique à votre projet).
-
-2. dans ce projet nous allons utiliser JUnit, Hamcrest et Mockito.
+1. dans ce projet nous allons utiliser JUnit, Hamcrest et Mockito.
 
         **A quoi servent ces librairies ?**
         Ce sont des frameworks qui servent à écrire des tests logiciels en Java.
 
-3. vérifier que tout marche bien avec `./gradlew cleanTest test`
 
-## Sujet
-
-Au cours de ce TD, nous allons procéder de la manière suivante. Nous allons tenir à jour une *task list* contenant une liste de tâches à réaliser vis-à-vis du code. A chaque étape, nous choisirons dans cette liste vers quelle étape procéder, tout en rajoutant éventuellement d’autres tâches sur cette liste. Cette liste de tâche sera un fichier texte organisé comme suit :
-
-```
-[X] 1- description de la tâche
-[X] 2- description de la tâche
-[ ] 3- description de la tâche
-...
-```
-
-Le sujet de ce TD porte sur la réalisation d’un dictionnaire bilingue. Stricto sensu, il s’agit de pouvoir réaliser des traductions entre deux langues, dans les deux sens. Pour des raisons de portabilité, il sera intéressant de pouvoir sauvegarder et charger des dictionnaires à travers des fichiers externes.
-
-**Construire une liste de tâche associée au TD**
-
-## Fake it !
-
-La question du choix de la première tâche à réaliser est une question importante. Elle doit être suffisamment simple pour permettre de réaliser un premier cycle *red-green-refactor* rapidement.Manifestement, dans notre problème, la classe centrale est la classe `Dictionary`.
-
-**Commençons par écrire un test qui ne passe pas pour cette classe.**
-
-1. Construire une classe de tests nommée `DictionaryTest`.
-2. Ecrire dans cette classe un test créant un objet de type `Dictionary`, lui assignant un nom, et vérifiant que ce nom est correctement stocké dans l’objet.
-
-       Il est fondamental d’écrire un test qui ne passe pas, comme par exemple :
-       
-       ```java
-   @Test public void testDictionaryName() {
-        assertThat(dict.getName(), equalTo("Example"));
-        }
-
-        ```
-        ```
+5.     Quelle duplication existe pour l’instant dans notre code ?
+        On a une duplication du getName() et du constructeur.
     
-        En ce sens, rien n’est imposé par rapport au choix des noms des classes ou des méthodes, puisque la classe `Dictionary` n’existe pas encore.
-
-3. Maintenant que la *red bar* est atteinte, nous allons tâcher de faire passer le test. Pour cela, il existe plusieurs techniques. Celle utilisée ici est nommée *Fake it* (litt. « Fais semblant »). Concrètement, elle consiste à faire le minimum nécessaire pour faire passer le test. Dans notre cas, il suffit d’une méthode `getName()` renvoyant la chaîne de caractères `"Example"`.
-
-        Créer une classe `Dictionary` vide, puis lui ajouter un constructeur vide.
-
-4. Écrire une méthode vide `getName()` renvoyant la chaîne de caractères `"Example"`.
-
-        La notion de « semblant » est ici aussi fondamentale : elle permet de construire le code pas à pas, en utilisant à chaque étape une méthode simple, rapide, et faisant passer les tests existants.
-        
-        Cette pratique autorise un grand nombre de dérives dans le style de programmation : variables globales ou publiques, conversions du type (cast) des objets ... dont il faudra tenir compte lors de la phase de refactoring.
-
-5. Lorsque la *green bar* est atteinte arrive la phase la plus complexe du TDD : la phase de *refactoring*. Pour l’instant, nous allons nous limiter à éliminer les duplications de code.
-
-        Quelle duplication existe pour l’instant dans notre code ?
-        Les classes Dictionary et DictionaryTest ainsi que leur méthode.
-
-6. Supprimer la duplication du code en introduisant un attribut privé `name`, et adapter le constructeur et la méthode `getName()`de manière à s’assurer que cette variable soit correctement positionnée et renvoyée.
-
-        Qu’englobe la notion de refactoring ? Toute forme de modification du code qui conserve le passage des tests existants, et qui permet d’obtenir une architecture logicielle avec un minimum de défauts.
-        Quelques exemples :
-        
-        – supprimer la duplication du code / déplacer du code ;
-        
-        – ajuster le caractère privé/public des attributs/méthodes.
-
-7. Le cycle de travail est maintenant bouclé. Il devient alors possible de recommencer ce cycle avec un nouveau test. Les tests pré-existant assurent une certaine confiance dans le code déjà écrit, et permettent d’envisager les modifications futures avec sérénité.
-
-        Utiliser la technique précédente pour écrire un test, puis une méthode permettant de vérifier si un dictionnaire est vide ou pas (méthode `isEmpty`). En l’absence de méthodes pour ajouter quoi que ce soit au dictionnaire, on se limitera à renvoyer une valeur constante.
-
-8. Comme cette fonctionnalité n’est pas implémentée de manière correcte, rajouter le problème du traitement du dictionnaire vide dans la task list.
 
 ## Triangulation
 

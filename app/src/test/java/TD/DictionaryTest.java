@@ -6,10 +6,10 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class DictionaryTest{
-    Dictionary dicTest = new Dictionary();
+    Dictionary dicTest = new Dictionary("test");
     @Test 
     public void testDictionaryName() {
-        assertThat(dicTest.getName(), equalTo("Example"));
+        assertThat(dicTest.getName(), equalTo("test"));
     }
     @Test
     public int isEmpty() {
