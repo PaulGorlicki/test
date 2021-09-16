@@ -2,6 +2,8 @@
 
 ## Objectifs
 
+Lien Github du TD = https://github.com/PaulGorlicki/test
+
 Dans ce TD nous allons illustrer le principe du TDD sur un exemple simple. Nous allons aussi illustrer l'utilisation de stubs et de couverture du code par les tests. Vous pourrez utiliser l'IDE de votre choix **mais** l'ensemble du travail doit pouvoir fonctionner hors IDE à l'aide du système de build indiqué dans la suite.
 
 ## Installation
@@ -48,7 +50,7 @@ La question du choix de la première tâche à réaliser est une question import
 
         ```
         ```
-
+    
         En ce sens, rien n’est imposé par rapport au choix des noms des classes ou des méthodes, puisque la classe `Dictionary` n’existe pas encore.
 
 3. Maintenant que la *red bar* est atteinte, nous allons tâcher de faire passer le test. Pour cela, il existe plusieurs techniques. Celle utilisée ici est nommée *Fake it* (litt. « Fais semblant »). Concrètement, elle consiste à faire le minimum nécessaire pour faire passer le test. Dans notre cas, il suffit d’une méthode `getName()` renvoyant la chaîne de caractères `"Example"`.
@@ -58,7 +60,7 @@ La question du choix de la première tâche à réaliser est une question import
 4. Écrire une méthode vide `getName()` renvoyant la chaîne de caractères `"Example"`.
 
         La notion de « semblant » est ici aussi fondamentale : elle permet de construire le code pas à pas, en utilisant à chaque étape une méthode simple, rapide, et faisant passer les tests existants.
-    
+        
         Cette pratique autorise un grand nombre de dérives dans le style de programmation : variables globales ou publiques, conversions du type (cast) des objets ... dont il faudra tenir compte lors de la phase de refactoring.
 
 5. Lorsque la *green bar* est atteinte arrive la phase la plus complexe du TDD : la phase de *refactoring*. Pour l’instant, nous allons nous limiter à éliminer les duplications de code.
@@ -70,9 +72,9 @@ La question du choix de la première tâche à réaliser est une question import
 
         Qu’englobe la notion de refactoring ? Toute forme de modification du code qui conserve le passage des tests existants, et qui permet d’obtenir une architecture logicielle avec un minimum de défauts.
         Quelques exemples :
-    
+        
         – supprimer la duplication du code / déplacer du code ;
-    
+        
         – ajuster le caractère privé/public des attributs/méthodes.
 
 7. Le cycle de travail est maintenant bouclé. Il devient alors possible de recommencer ce cycle avec un nouveau test. Les tests pré-existant assurent une certaine confiance dans le code déjà écrit, et permettent d’envisager les modifications futures avec sérénité.
