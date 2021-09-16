@@ -28,17 +28,6 @@ Lien Github du TD = https://github.com/PaulGorlicki/test
 
 
 
-1. Maintenant, il faut faire un choix : soit se limiter à une implémentation-simulacre, soit ajouter un morceau de code capable d’effectivement gérer les traductions. C’est la deuxième solution que l’on choisit maintenant.
-
-        Ajouter à la classe `Dictionary`une table de hachage `Map<String, String> translations`.
-
-2. Rendre le code de `addTranslation` et de `getTranslation` correct.
-
-3. Vu que l’on dispose à présent d’un moyen correct pour remplir le dictionnaire avec des traductions,
-   il devient possible de s’occuper du cas du test du dictionnaire vide.
-
-        Améliorer le test du vide du dictionnaire en augmentant le test initial.
-
 ## Les fixtures de JUnit
 
 L’écriture de tests dans la classe `Dictionary` fait souvent preuve de redondance. Il est possible de factoriser l’initialisation des tests que l’on réalise avec JUnit, et cela en utilisant encore les annotations Java :

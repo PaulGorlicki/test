@@ -12,7 +12,7 @@ Fake it
 
 [X] 6 - isEmpty()  
 
-[  ] 7 - Traitement dictionnaire vide
+[X] 7 - Traitement dictionnaire vide
 
 
 
@@ -23,3 +23,10 @@ Triangulation
 [X] 2 - getTranslationTest()
 
 [X] 3 - getTranslationTest2()
+
+[X] 4 - Table de hachage
+
+[X] 5 - addTranslation() 
+
+[X] 6 - getTranslation()
+
