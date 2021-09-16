@@ -98,6 +98,8 @@ Le TDD insiste profondément sur la programmation par nécessité. Il faut d’a
 
 2. Est-il possible de faire un test qui n’implique l’ajout que d’une seule de ces deux méthodes ?
 
+    Oui, on peut vérifier qu'addTranslation() ajoute bien une traduction et vérifier que getTranslation() nous donne bien une traduction. Les deux marchent indépendamment. 
+
 3. Utiliser *Fake it* pour faire passer le test en faisant renvoyer à `getTranslation` la réponse attendue par le test.
 
 4. Ici, notre test n’est pas suffisamment précis, et l’implémentation obtenue est correcte d’un point de vue des tests. Trianguler consiste ici à raffiner le test pour mieux cibler le comportement du code.

@@ -17,3 +17,9 @@ Fake it
 
 
 Triangulation
+
+[X] 1 - testOneTranslation()
+
+[X] 2 - getTranslationTest()
+
+[  ] 3 - seconde traduction
